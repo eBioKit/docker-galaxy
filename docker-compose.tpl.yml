@@ -1,0 +1,48 @@
+############################################################
+# Launcher for Galaxy and Galaksio containers for the eBioKit
+# This is a template, the following values must be replaced:
+#   - $$ADMIN_ACCOUNT$$, the admin account for Galaxy
+#   - $$APP1_PORT$$, port number for the Galaxy instance
+#   - $$APP2_PORT$$, port number for the Galaksio instance
+#   - $$DATA_LOCATION$$, location for the application data
+# TODO:
+# - Galaxy logs
+############################################################
+
+version: '2'
+services:
+
+    galaxy_machine:
+      image: ebiokit/galaxy
+      container_name: galaxy_machine
+      environment:
+        - NONUSE=reports
+        - GALAXY_CONFIG_ADMIN_USERS=$$ADMIN_ACCOUNT$$
+        - GALAXY_CONFIG_BRAND='eBioKit'
+        - GALAXY_CONFIG_TOOL_CONFIG_FILE=config/tool_conf.xml.sample,config/shed_tool_conf.xml.sample,/local_tools/custom_tools.xml
+      depends_on:
+        - galaxy_data
+      volumes_from:
+        - galaxy_data
+      ports:
+        - "$$APP1_PORT$$:80"
+
+    galaksio_machine:
+      image: ebiokit/galaksio
+      container_name: galaksio_machine
+      links:
+        - galaxy_machine:galaxy_machine
+      depends_on:
+        - galaxy_machine
+      volumes_from:
+        - galaxy_data
+      ports:
+        - "$$APP2_PORT$$:80"
+
+    galaxy_data:
+      image: busybox
+      container_name: galaxy_data
+      volumes:
+        - $$DATA_LOCATION$$/galaxy-data/:/export
+        - $$DATA_LOCATION$$/galaxy-custom-tools/:/local_tools
+        - $$DATA_LOCATION$$/galaksio-data:/usr/local/apache2/htdocs/server/conf/
