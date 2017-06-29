@@ -11,6 +11,24 @@ This docker image extends and distributes the following software:
 - [Licensed under MIT license.](https://raw.githubusercontent.com/bgruening/docker-galaxy-stable/master/LICENSE).
 - Based on [Galaxy project](https://github.com/galaxyproject/galaxy).
 - [Licensed under Academic Free License v3.0.](https://raw.githubusercontent.com/galaxyproject/galaxy/dev/LICENSE.txt).
+- Citation:
+> Goecks, J, Nekrutenko, A, Taylor, J and The Galaxy Team. "Galaxy: a comprehensive approach for supporting accessible, reproducible, and transparent computational research in the life sciences." Genome Biol. 2010 Aug 25;11(8):R86.
+
+> Blankenberg D, Von Kuster G, Coraor N, Ananda G, Lazarus R, Mangan M, Nekrutenko A, Taylor J. "Galaxy: a web-based genome analysis tool for experimentalists". Current Protocols in Molecular Biology. 2010 Jan; Chapter 19:Unit 19.10.1-21.
+
+> Giardine B, Riemer C, Hardison RC, Burhans R, Elnitski L, Shah P, Zhang Y, Blankenberg D, Albert I, Taylor J, Miller W, Kent WJ, Nekrutenko A. "Galaxy: a platform for interactive large-scale genome analysis." Genome Research. 2005 Oct; 15(10):1451-5.
+
+## Running the Container
+
+The container is publicly available as `ebiokit/docker-galaxy`. The recommended method for launching the container is via docker-compose.
+
+## Quickstart
+
+This procedure starts Galaxy in a standard virtualised environment.
+
+- Install [docker](https://docs.docker.com/engine/installation/) for your system if not previously done.
+- `docker run -it -p 8080:80 ebiokit/docker-galaxy`
+- MRS will be available at [http://localhost:8080/](http://localhost:8080/)
 
 ### About the eBioKit project
 

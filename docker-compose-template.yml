@@ -1,0 +1,36 @@
+############################################################
+# Launcher for Galaxy container for the eBioKit
+# This is a template, the following values must be replaced:
+#   - $${INSTANCE}, name for the instance
+#   - $${ADMIN_EMAIL}, email for admin user for Galaxy
+#   - $${INSTANCE_TITLE}, the title for the instance
+#   - $${APP_1_PORT_1}, port number for Galaxy instance
+#   - $${DATA_LOCATION}, location for the application data
+# TODO:
+# - Galaxy logs
+############################################################
+
+version: '2'
+services:
+
+    $${INSTANCE}-galaxy:
+      image: ebiokit/docker-galaxy
+      container_name: $${INSTANCE}-galaxy
+      environment:
+        - NONUSE=reports
+        - GALAXY_CONFIG_ADMIN_USERS=$${ADMIN_EMAIL}
+        - GALAXY_CONFIG_BRAND="$${INSTANCE_TITLE}"
+        - GALAXY_CONFIG_TOOL_CONFIG_FILE=config/tool_conf.xml.sample,config/shed_tool_conf.xml.sample,/local_tools/custom_tools.xml
+      depends_on:
+        - $${INSTANCE}-galaxy-data
+      volumes_from:
+        - $${INSTANCE}-galaxy-data
+      ports:
+        - "$${APP_1_PORT_1}:80"
+
+    $${INSTANCE}-galaxy-data:
+      image: busybox
+      container_name: $${INSTANCE}-galaxy-data
+      volumes:
+        - $${DATA_LOCATION}/galaxy-data/:/export
+        - $${DATA_LOCATION}/galaxy-custom-tools/:/local_tools
