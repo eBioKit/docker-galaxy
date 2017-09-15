@@ -18,18 +18,6 @@ This docker image extends and distributes the following software:
 
 > Giardine B, Riemer C, Hardison RC, Burhans R, Elnitski L, Shah P, Zhang Y, Blankenberg D, Albert I, Taylor J, Miller W, Kent WJ, Nekrutenko A. "Galaxy: a platform for interactive large-scale genome analysis." Genome Research. 2005 Oct; 15(10):1451-5.
 
-## Running the Container
-
-The container is publicly available as `ebiokit/docker-galaxy`. The recommended method for launching the container is via docker-compose.
-
-## Quickstart
-
-This procedure starts Galaxy in a standard virtualised environment.
-
-- Install [docker](https://docs.docker.com/engine/installation/) for your system if not previously done.
-- `docker run -it -p 8080:80 ebiokit/docker-galaxy`
-- MRS will be available at [http://localhost:8080/](http://localhost:8080/)
-
 ### About the eBioKit project
 
 The eBioKit is a system running multiple open source web services on an Apple Mac-mini where all databases are stored locally.

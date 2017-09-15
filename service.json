@@ -1,0 +1,9 @@
+{
+	"service":"galaxy",
+	"version":"17.01",
+	"title":"Galaxy",
+	"description":"Galaxy is an open, web-based platform for accessible, reproducible, and transparent computational biomedical research.",
+	"categories":"analysis,bioinformatics,galaxy,easy-to-use,web-based",
+	"website":"https://usegalaxy.org/",
+	"dockers" : "bgruening/galaxy-stable:17.01,busybox"
+}

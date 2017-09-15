@@ -1,0 +1,29 @@
+[
+	{
+		"name": "INSTANCE_TITLE",
+		"label": "Service name",
+		"type": "text",
+		"description": "The title for the new service",
+		"default": "Galaxy"
+	},
+	{
+		"name": "INSTANCE_PORT_1",
+		"label": "Port number",
+		"type": "number",
+		"description": "The port number for the new instance",
+		"default": 8080
+	},
+	{
+		"name": "GALAXY_INSTANCE_TITLE",
+		"label": "Galaxy title",
+		"type": "text",
+		"description": "A custom title for the Galaxy server (shown in home page).",
+		"default": "My own Galaxy server"
+	},
+	{
+		"name": "ADMIN_ACCOUNTS",
+		"label": "Admin accounts",
+		"type": "email",
+		"description": "The admin accounts (email) separated by commas."
+	}
+]
