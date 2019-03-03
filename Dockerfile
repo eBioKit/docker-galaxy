@@ -7,7 +7,7 @@
 ############################################################
 
 # Set the base image to bgruening/galaxy-stable
-FROM bgruening/galaxy-stable
+FROM bgruening/galaxy-stable:19.01
 
 # File Author / Maintainer
 MAINTAINER Rafael Hernandez <ebiokit@gmail.com>
